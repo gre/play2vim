@@ -6,8 +6,9 @@ A vim plugin for Play framework 2.0.
 What's in the box?
 ------------------
 
-* conf/routes syntax color
-* conf/application.conf syntax color
+* `conf/routes` syntax color
+* `conf/application.conf` syntax color
+* `*.scala.html` syntax color
 
 More will come soon.
 
