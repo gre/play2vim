@@ -15,14 +15,14 @@ syn match	confComment	"\s#.*"ms=s+1
 syn region	confString	start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
 syn region	confString	start=+'+ skip=+\\\\\|\\'+ end=+'+ oneline
 
-syn match      confLabel       "^[^=#]\+="me=e-1
+syn match      confKey         "^[^=#]\+="me=e-1
 syn match      confValue       "=.*$"ms=s+1 contains=confString,confComment
 
 " Define the default highlighting.
 " Only used when an item doesn't have highlighting yet
 hi def link confComment	Comment
 hi def link confString	String
-hi def link confLabel	Label
+hi def link confKey	Identifier
 hi def link confValue	Special
 
 let b:current_syntax = "play2-conf"
