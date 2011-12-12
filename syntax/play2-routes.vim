@@ -32,8 +32,8 @@ syn region routesActionArgs start="(" end=")" contains=routesString,scalaType,sc
 syn region routesString start=+"+ end=+"+
 
 syn keyword routesHttpMethod GET PUT POST DELETE HEAD
-syn region routesMethod start="^[A-Z]\+" end="\s" contains=routesHttpMethod
-syn region routesPath   start="\s\+/" end="\s" contains=routesParam
+syn region routesMethod start="^" end="\s" contains=routesHttpMethod nextgroup=routesPath skipwhite
+syn region routesPath   start="/" end="\s" contains=routesParam nextgroup=routesAction skipwhite
 syn region routesAction start="controllers." end="$" contains=routesActionArgs
 syn match routesComment "#.*" contains=routesComment
 

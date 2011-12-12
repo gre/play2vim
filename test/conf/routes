@@ -22,4 +22,3 @@ GET   /                       controllers.Application.show(page = "home")
 GET   /:page                  controllers.Application.show(page)
 GET   /clients                controllers.Clients.list(page: Int ?= 1)
 GET   /clients/$id<[0-9]+>    controllers.Clients.show(id: Long)
-
