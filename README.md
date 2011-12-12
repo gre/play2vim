@@ -5,7 +5,9 @@ A vim plugin for Play framework 2.0.
 
 What's in the box?
 ------------------
-Currently, only the routes syntax is provided.
+
+* conf/routes syntax color
+* conf/application.conf syntax color
 
 More will come soon.
 
