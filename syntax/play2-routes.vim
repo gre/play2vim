@@ -29,7 +29,7 @@ syn keyword scalaKeyword case catch do else extends final finally for forSome if
 
 
 syn region routesActionArgs start="(" end=")" contains=routesString,scalaType,scalaNumber,scalaBoolean,scalaKeyword
-syn region routesString start=+"+ end=+"+
+syn region routesString start=+"+ end=+"+ oneline
 
 syn keyword routesHttpMethod GET PUT POST DELETE HEAD
 syn region routesMethod start="^" end="\s" contains=routesHttpMethod nextgroup=routesPath skipwhite
@@ -37,18 +37,18 @@ syn region routesPath   start="/" end="\s" contains=routesParam nextgroup=routes
 syn region routesAction start="controllers." end="$" contains=routesActionArgs
 syn match routesComment "#.*" contains=routesComment
 
-hi link routesHttpMethod Normal 
-hi link routesRegexp  Statement
-hi link routesPath    Special
-hi link routesAction  Underlined
-hi link routesParam   Identifier
-hi link routesComment Comment
-hi link routesString  String
+hi def link routesHttpMethod Normal 
+hi def link routesRegexp  Statement
+hi def link routesPath    Special
+hi def link routesAction  Underlined
+hi def link routesParam   Identifier
+hi def link routesComment Comment
+hi def link routesString  String
 
-hi link scalaType     Type
-hi link scalaBoolean  Boolean
-hi link scalaNumber   Number
-hi link scalaKeyword  Keyword
+hi def link scalaType     Type
+hi def link scalaBoolean  Boolean
+hi def link scalaNumber   Number
+hi def link scalaKeyword  Keyword
 
 let b:current_syntax = "play2-routes"
 
