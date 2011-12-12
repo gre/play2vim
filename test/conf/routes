@@ -7,7 +7,7 @@ GET     /computers                  controllers.Application.list(p:Int ?= 0, s:I
 GET     /computers/:id              controllers.Application.get(id:Long)
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-# Tasks                      
+# Tasks
 GET     /projects/:project/tasks            controllers.Tasks.index(project: Long)
 POST    /projects/:project/tasks            controllers.Tasks.add(project: Long, folder: String)
 PUT     /tasks/:task                        controllers.Tasks.update(task: Long)
@@ -21,5 +21,5 @@ PUT     /project/:project/tasks/folder      controllers.Tasks.renameFolder(proje
 GET   /                       controllers.Application.show(page = "home")
 GET   /:page                  controllers.Application.show(page)
 GET   /clients                controllers.Clients.list(page: Int ?= 1)
-GET   /clients/$id<[0-9]+>    controllers.Clients.show(id: Long)  
+GET   /clients/$id<[0-9]+>    controllers.Clients.show(id: Long)
 
