@@ -37,7 +37,8 @@ syn region routesPath   start="\s\+/" end="\s" contains=routesParam
 syn region routesAction start="controllers." end="$" contains=routesActionArgs
 syn match routesComment "#.*" contains=routesComment
 
-hi link routesHttpMethod  Label
+hi link routesHttpMethod Normal 
+hi link routesRegexp  Statement
 hi link routesPath    Special
 hi link routesAction  Underlined
 hi link routesParam   Identifier
@@ -45,9 +46,9 @@ hi link routesComment Comment
 hi link routesString  String
 
 hi link scalaType     Type
-hi link scalaBoolean Boolean
-hi link scalaNumber Number
-hi link scalaKeyword Keyword
+hi link scalaBoolean  Boolean
+hi link scalaNumber   Number
+hi link scalaKeyword  Keyword
 
 let b:current_syntax = "play2-routes"
 
