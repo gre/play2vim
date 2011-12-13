@@ -32,9 +32,9 @@ syn region routesActionArgs start="(" end=")" contains=routesString,scalaType,sc
 syn region routesString start=+"+ end=+"+ oneline
 
 syn keyword routesHttpMethod GET PUT POST DELETE HEAD
-syn region routesMethod start="^" end="\s" contains=routesHttpMethod nextgroup=routesPath skipwhite
-syn region routesPath   start="/" end="\s" contains=routesParam nextgroup=routesAction skipwhite
-syn region routesAction start="controllers." end="$" contains=routesActionArgs
+syn region routesMethod start="^" end="\s" contains=routesHttpMethod nextgroup=routesPath skipwhite oneline
+syn region routesPath   start="/" end="\s" contains=routesParam nextgroup=routesAction skipwhite oneline
+syn region routesAction start="[a-zA-Z]\+\." end="$" contains=routesActionArgs oneline
 syn match routesComment "#.*" contains=routesComment
 
 hi def link routesHttpMethod Normal 
