@@ -12,29 +12,42 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn match routesParam ":[A-Za-z0-9]\+"
-syn match routesParam "*[A-Za-z0-9]\+"
 syn match routesRegexp "<[^>]\+>"
-syn match routesParam "\($[A-Za-z0-9]\+\)<[^>]\+>" contains=routesRegexp
+syn match routesParam  /[:*][A-Za-z0-9]\+/
+syn match routesParam  /\($[A-Za-z0-9]\+\)<[^>]\+>/ contains=routesRegexp
 
 syn include @scala syntax/scala.vim
 
-syn region routesActionArgs start="(" end=")" contains=@scala
+syn region routesActionArgs matchgroup=routesAction start="(" end=")" contains=@scala contained oneline
 syn region routesString start=+"+ end=+"+ oneline
 
-syn keyword routesHttpMethod GET PUT POST DELETE HEAD
-syn region routesMethod start="^" end="\s" contains=routesHttpMethod nextgroup=routesPath skipwhite oneline
-syn region routesPath   start="/" end="\s" contains=routesParam nextgroup=routesAction skipwhite oneline
-syn region routesAction start="[a-zA-Z]\+\." end="$" contains=routesActionArgs oneline
+syn keyword routesHttpMethod GET PUT POST DELETE HEAD contained
+syn region routesMethod start="^" end=/\s/ contains=routesHttpMethod nextgroup=routesPath skipwhite oneline
+syn region routesPath   start="/" end=/\s/ contains=routesParam nextgroup=routesAction skipwhite oneline
+syn region routesAction start=/[a-zA-Z]\+\./ end="$" contains=routesActionArgs skipwhite oneline
 syn match routesComment "#.*" contains=routesComment
 
-hi def link routesHttpMethod Normal 
-hi def link routesRegexp  Statement
-hi def link routesPath    Special
-hi def link routesAction  Underlined
-hi def link routesParam   Identifier
-hi def link routesComment Comment
-hi def link routesString  String
+" Define the default highlighting.
+" For version 5.7 and earlier: only when not done already
+" For version 5.8 and later: only when an item doesn't have highlighting yet
+if version >= 508 || !exists("did_play2routes_syn_inits")
+  if version < 508
+    let did_play2routes_syn_inits = 1
+    command -nargs=+ HiLink hi link <args>
+  else
+    command -nargs=+ HiLink hi def link <args>
+  endif
+
+  HiLink routesHttpMethod Statement
+  HiLink routesRegexp  Statement
+  HiLink routesPath    Special
+  HiLink routesAction  Underlined
+  HiLink routesParam   Identifier
+  HiLink routesComment Comment
+  HiLink routesString  String
+
+  delcommand HiLink
+endif
 
 let b:current_syntax = "play2-routes"
 

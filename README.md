@@ -1,6 +1,5 @@
 play2vim
 ========
-
 A vim plugin for Play framework 2.0.
 
 Recommanded plugins
@@ -10,20 +9,19 @@ Recommanded plugins
 
 What's in the box?
 ------------------
-
 * `conf/routes` syntax color
 * `conf/application.conf` syntax color
 * `*.scala.html` syntax color
+
+![screenshot](http://i.imgur.com/EjuRK.png)
 
 More will come soon.
 
 I would enjoy anyone to contribute to this project.
 
-![screenshot](http://i.imgur.com/EjuRK.png)
 
 Licence
 =======
-
 This software is licensed under the Apache 2 license, quoted below.
 
 Copyright 2011 Gaëtan Renaudeau <gre@zenexity.com>

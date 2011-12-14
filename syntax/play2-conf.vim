@@ -19,11 +19,23 @@ syn match      confKey         "^[^=#]\+="me=e-1
 syn match      confValue       "=.*$"ms=s+1 contains=confString,confComment
 
 " Define the default highlighting.
-" Only used when an item doesn't have highlighting yet
-hi def link confComment	Comment
-hi def link confString	String
-hi def link confKey	Identifier
-hi def link confValue	Special
+" For version 5.7 and earlier: only when not done already
+" For version 5.8 and later: only when an item doesn't have highlighting yet
+if version >= 508 || !exists("did_play2conf_syn_inits")
+  if version < 508
+    let did_play2conf_syn_inits = 1
+    command -nargs=+ HiLink hi link <args>
+  else
+    command -nargs=+ HiLink hi def link <args>
+  endif
+
+  HiLink confComment Comment
+  HiLink confString  String
+  HiLink confKey     Identifier
+  HiLink confValue   Special
+
+  delcommand HiLink
+endif
 
 let b:current_syntax = "play2-conf"
 
