@@ -24,11 +24,12 @@ syn include @scala syntax/scala.vim
 
 syn match phExprIdentifier "@"               nextgroup=phExpr
 syn match phExprIdentifier /@[A-Za-z0-9.]\+/ nextgroup=phExpr
+syn region phComment start=/@[*]/ end=/[*]@/
 syn match phOverrided      "@@"
+
 syn region phExpr matchgroup=phExprIdentifier start="("  end=")"  contains=@scala contained nextgroup=phExpr
 syn region phExpr matchgroup=phExprIdentifier start="{"  end="}"  contains=@scala contained nextgroup=phExpr
 syn region phExpr matchgroup=phExprIdentifier start="\[" end="\]" contains=@scala contained nextgroup=phExpr
-syn region phComment start=/@[*]/ end=/[*]@/
 syn region htmlTag   start=+<[^/%]+ end=+>+ contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent,htmlCssDefinition,@htmlPreproc,@htmlArgCluster,phExpr
 
 " Define the default highlighting.
