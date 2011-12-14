@@ -3,6 +3,11 @@ play2vim
 
 A vim plugin for Play framework 2.0.
 
+Recommanded plugins
+-------------------
+* Scala: git://github.com/derekwyatt/vim-scala.git
+* HTML5: git://github.com/othree/html5.vim.git
+
 What's in the box?
 ------------------
 

@@ -19,19 +19,25 @@ endif
 " Source HTML syntax
 if version < 600
   source <sfile>:p:h/html.vim
+  source <sfile>:p:h/html/html5.vim
 else
   runtime! syntax/html.vim
+  runtime! syntax/html/html5.vim
 endif
 unlet b:current_syntax
 
 syn include @scala syntax/scala.vim
 
-syn region phExpr       start=/@[A-Za-z0-9.]\+/  keepend end=//  nextgroup=phExprNextGroup contains=@scala
-syn region phScriptlet  start=/@(/  keepend end=/)/ nextgroup=phGroup contains=@scala
-syn region phScriptlet  start=/@{/  keepend end=/}/ nextgroup=phGroup contains=@scala
-syn region phExprNextGroup  start=/(/  keepend end=/)/ contains=@scala
-syn region phComment    start=/@[*]/	      end=/[*]@/
-syn region htmlTag start=+<[^/%]+ end=+>+ contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent,htmlCssDefinition,@htmlPreproc,@htmlArgCluster,phExpr
+syn match phExprIdentifier /@/ nextgroup=phExpr
+syn match phExprIdentifier /@[A-Za-z0-9.]\+/ nextgroup=phExpr
+syn region phExpr matchgroup=phExprIdentifier start=/(/ end=/)/  contains=@scala contained nextgroup=phExpr
+syn region phExpr matchgroup=phExprIdentifier start=/{/ end=/}/ contains=@scala contained nextgroup=phExpr
+syn region phExpr matchgroup=phExprIdentifier start="\[" end="\]" contains=@scala contained nextgroup=phExpr
+
+syn match phOverrided /@@/
+
+syn region phComment  start=/@[*]/ end=/[*]@/
+syn region htmlTag         start=+<[^/%]+ end=+>+ contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent,htmlCssDefinition,@htmlPreproc,@htmlArgCluster,phExpr
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
@@ -44,9 +50,10 @@ if version >= 508 || !exists("did_jsp_syn_inits")
     command -nargs=+ HiLink hi def link <args>
   endif
 
-  Hi     phExpr          Special
-  HiLink phComment	 Comment
-  
+  HiLink phExprIdentifier Identifier
+  HiLink phComment	  Comment
+  HiLink phOverrided      Default
+
   delcommand HiLink
 endif
 
