@@ -42,11 +42,11 @@ function! GetPlay2HtmlIndent()
 	call add(decrease_tags, '^\s*#{\s*/' . i)
   endfor
   let increase_tags_re = join(increase_tags, '\|')
-  let decrease_tags_re = join(increase_tags, '\|')
+  let decrease_tags_re = join(decrease_tags, '\|')
 
   if line =~ increase_tags_re
     return indent + &sw
-  elseif cline =~ s:property_close
+  elseif cline =~ decrease_tags_re
 	return indent - &sw
   else
     return HtmlIndentGet(v:lnum)
