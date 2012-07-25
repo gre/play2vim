@@ -38,8 +38,8 @@ function! GetPlay2HtmlIndent()
   let decrease_tags_re = ''
   let decrease_tags = []
   for i in s:tags
-	call add(increase_tags, '^\s*#{\s*' . i)
-	call add(decrease_tags, '^\s*#{\s*/' . i)
+    call add(increase_tags, '^\s*#{\s*' . i)
+    call add(decrease_tags, '^\s*#{\s*/' . i)
   endfor
   let increase_tags_re = join(increase_tags, '\|')
   let decrease_tags_re = join(decrease_tags, '\|')
@@ -47,11 +47,11 @@ function! GetPlay2HtmlIndent()
   if line =~ increase_tags_re
     return indent + &sw
   elseif cline =~ decrease_tags_re
-	return indent - &sw
+    return indent - &sw
   else
     return HtmlIndentGet(v:lnum)
   endif
 endfunction
 
 
-" vim:set sw=2:
+" vim:set sw=2 et:
