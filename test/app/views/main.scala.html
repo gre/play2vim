@@ -33,5 +33,9 @@
           </p>    
         }
 
+        @for((foo, number) <- fooList.view.zipWithIndex) {
+          <div>@(foo) is number @number</div>
+        }
+
     </body>
 </html>
