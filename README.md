@@ -17,7 +17,7 @@ What's in the box?
 
 More will come soon.
 
-I would happy to accept any contributions to this project.
+I would be happy to accept any contributions to this project.
 
 
 Licence
