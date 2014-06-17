@@ -22,8 +22,10 @@ unlet b:current_syntax
 
 syn include @scala syntax/scala.vim
 
+syn match phExprIdentifier "#"                nextgroup=phExpr
 syn match phExprIdentifier "@"                nextgroup=phExpr
 syn match phExprIdentifier /@[A-Za-z0-9._]\+/ nextgroup=phExpr
+syn region phComment start=/^\s*\*{/ end=/}\*\s*$/
 syn region phComment start=/@[*]/ end=/[*]@/
 syn match phOverrided      "@@"
 
