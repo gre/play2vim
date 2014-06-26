@@ -2,6 +2,19 @@ play2vim
 ========
 A vim plugin for Play framework 2.0.
 
+Install
+---
+
+**Using [pathogen](https://github.com/tpope/vim-pathogen)**:
+```
+cd .vim/bundle
+git clone https://github.com/gre/play2vim.git
+```
+
+
+It should also work without pathogen, please contribute to this README to explain how.
+
+
 Recommended plugins
 -------------------
 * [vim-scala](http://github.com/derekwyatt/vim-scala) (http://github.com/derekwyatt/vim-scala)
