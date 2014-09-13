@@ -21,7 +21,7 @@ syn include @scala syntax/scala.vim
 syn region routesActionArgs matchgroup=routesAction start="(" end=")" contains=@scala contained oneline
 syn region routesString start=+"+ end=+"+ oneline
 
-syn keyword routesHttpMethod GET PUT POST DELETE HEAD contained
+syn keyword routesHttpMethod GET PUT PATCH POST DELETE HEAD OPTIONS contained
 syn region routesMethod start="^" end=/\s/ contains=routesHttpMethod nextgroup=routesPath skipwhite oneline
 syn region routesPath   start="/" end=/\s/ contains=routesParam nextgroup=routesAction skipwhite oneline
 syn region routesAction start=/[a-zA-Z]\+\./ end="$" contains=routesActionArgs skipwhite oneline
