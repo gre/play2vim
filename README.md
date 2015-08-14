@@ -11,8 +11,17 @@ cd .vim/bundle
 git clone https://github.com/gre/play2vim.git
 ```
 
+**Using [Vundle](https://github.com/VundleVim/Vundle.vim)**:
 
-It should also work without pathogen, please contribute to this README to explain how.
+Add the following line to your `.vimrc`:
+```
+Plugin 'gre/play2vim'
+```
+After that, run `:PluginInstall` in vim
+
+Or
+
+From your terminal, run `vim +PluginInstall +qall`
 
 
 Recommended plugins
